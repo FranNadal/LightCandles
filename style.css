@@ -3,3 +3,54 @@
     object-fit: cover; /* Esto recorta las imágenes para que llenen el espacio definido */
     width: 100%; /* Asegura que las imágenes ocupen el ancho del contenedor */
   }
+  /* Normalización del tamaño */
+.product-image {
+  width: 100%; /* Se adapta al contenedor */
+  height: 250px; /* Altura fija para todas las tarjetas */
+  object-fit: cover; /* Asegura que las imágenes se ajusten sin deformarse */
+}
+
+/* Efecto de volteo */
+.flip-card {
+  perspective: 1000px;
+  width: 100%; /* Coincide con el tamaño de las columnas */
+  height: 250px; /* Misma altura que las imágenes */
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flip-card-back {
+  background-color: #f9f9f9;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+  text-align: center; /* Centrar contenido */
+  padding: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
